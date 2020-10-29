@@ -22,8 +22,9 @@ public class MainSceneManagement : MonoBehaviour
     public void OnClickSetName()
     {
         GetMMTypeUI();
-        PlayerNetwork.Instance.SetName(PlayerName.text);
-       // LobbyNetwork.JoinLobby();
+        PlayerNetwork.Instance.SetInfoInPlayerPrefs(PlayerName.text);
+        Debug.Log("Settings info player name : " + PlayerName.text);
+        // LobbyNetwork.JoinLobby();
         //PlayerNameCanvas.SetActive(false);
     }
     public void OnClickQuickGame()

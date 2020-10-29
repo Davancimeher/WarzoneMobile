@@ -25,10 +25,10 @@ public class PlayerNetwork : MonoBehaviour
     private Coroutine _Pingcoroutine;
     public bool SceneLoaded = false;
     public SceneManagement SceneManagement;
-    public string nickName = "guest";
     public bool FirstConnection = false;
 
     public byte PrefabID=0;
+    public int AvatarId = 0;
 
     public List<string> prefabsName = new List<string>
     {
@@ -61,14 +61,67 @@ public class PlayerNetwork : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
+
         photonView = GetComponent<PhotonView>();
 
-       // PlayerName = "guest#" + Random.Range(1000, 9999);
+        // PlayerName = "guest#" + Random.Range(1000, 9999);
+        GeInfoFromPlayerprefs();
 
         PhotonNetwork.sendRate = 60;
         PhotonNetwork.sendRateOnSerialize = 30;
 
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
+    }
+
+    public void  SetInfoInPlayerPrefs(int _avatarId)
+    {
+        AvatarId = _avatarId;
+        PlayerPrefs.SetInt("AvatarId", AvatarId);
+    }
+    public void SetInfoInPlayerPrefs(string _nickName)
+    {
+        if (string.IsNullOrEmpty(_nickName) && string.IsNullOrEmpty(PlayerName))
+        {
+            _nickName = "Guest";
+        }
+        else if (!string.IsNullOrEmpty(_nickName) && string.IsNullOrEmpty(PlayerName))
+        {
+            PlayerPrefs.SetString("Name", _nickName);
+        }
+        else if (string.IsNullOrEmpty(_nickName) && !string.IsNullOrEmpty(PlayerName))
+        {
+            _nickName = PlayerName;
+        }
+        else if(_nickName != PlayerName)
+        {
+            PlayerPrefs.SetString("Name", _nickName);
+        }
+
+        PhotonPlayer player = PhotonNetwork.player;
+        player.NickName = _nickName + "#" + Random.Range(1000, 9999);
+        Debug.Log("player.NickName " + player.NickName);
+        PlayerName = _nickName;
+
+    }
+    public void SetInfoInPlayerPrefs(byte _prefabId)
+    {
+        PrefabID = _prefabId;
+        PlayerPrefs.SetInt("PrefabId", (int)PrefabID);
+    }
+    public void SetInfoInPlayerPrefs()
+    {
+        PlayerPrefs.SetString("Name", PlayerName);
+        PlayerPrefs.SetInt("PrefabId", (int)PrefabID);
+        PlayerPrefs.SetInt("AvatarId", AvatarId);
+    }
+    public void GeInfoFromPlayerprefs()
+    {
+        if (PlayerPrefs.HasKey("Name"))
+            PlayerName = PlayerPrefs.GetString("Name");
+        if (PlayerPrefs.HasKey("PrefabId"))
+            PrefabID = (byte)PlayerPrefs.GetInt("PrefabId");
+        if (PlayerPrefs.HasKey("AvatarId"))
+            AvatarId =  PlayerPrefs.GetInt("AvatarId");
     }
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
@@ -196,10 +249,6 @@ public class PlayerNetwork : MonoBehaviour
         player.NickName = Name + "#" + Random.Range(1000, 9999);
         Debug.Log("player.NickName " + player.NickName);
         PlayerName = player.NickName;
-    }
-    public void SetPrefabId(byte id)
-    {
-        PrefabID = id;
     }
     private void OnConnectedToMaster()
     {
