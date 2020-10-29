@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 41ea3f113eafefa458bd335d0df561ef
+timeCreated: 1443169193
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Object007
+    100002: //RootNode
+    100004: Toon Wizard
+    100006: Dummy-LHandWeapon
+    100008: Dummy-RHandWeapon
+    100010: Rig
+    100012: RigHead
+    100014: RigHeadGizmo
+    100016: RigLArm1
+    100018: RigLArm1Gizmo
+    100020: RigLArm2
+    100022: RigLArm2Gizmo
+    100024: RigLArmPalm
+    100026: RigLArmPalmGizmo
+    100028: RigLLeg1
+    100030: RigLLeg2
+    100032: RigLLegAnkle
+    100034: RigLLegFoot1
+    100036: RigLLegPlatform
+    100038: RigNeck
+    100040: RigPelvis
+    100042: RigPelvisGizmo
+    100044: RigRArm1
+    100046: RigRArm1Gizmo
+    100048: RigRArm2
+    100050: RigRArm2Gizmo
+    100052: RigRArmPalm
+    100054: RigRArmPalmGizmo
+    100056: RigRibcage
+    100058: RigRibcageGizmo
+    100060: RigRLeg1
+    100062: RigRLeg2
+    100064: RigRLegAnkle
+    100066: RigRLegFoot1
+    100068: RigRLegPlatform
+    100070: RigSpine1
+    100072: RigSpine2
+    100074: RigTail1
+    100076: RigTail1Gizmo
+    100078: RigTail2
+    100080: RigTail2Gizmo
+    100082: RigTail3
+    100084: RigTail3Gizmo
+    100086: RigTail4
+    100088: RigTail4Gizmo
+    100090: Wand
+    400000: Object007
+    400002: //RootNode
+    400004: Toon Wizard
+    400006: Dummy-LHandWeapon
+    400008: Dummy-RHandWeapon
+    400010: Rig
+    400012: RigHead
+    400014: RigHeadGizmo
+    400016: RigLArm1
+    400018: RigLArm1Gizmo
+    400020: RigLArm2
+    400022: RigLArm2Gizmo
+    400024: RigLArmPalm
+    400026: RigLArmPalmGizmo
+    400028: RigLLeg1
+    400030: RigLLeg2
+    400032: RigLLegAnkle
+    400034: RigLLegFoot1
+    400036: RigLLegPlatform
+    400038: RigNeck
+    400040: RigPelvis
+    400042: RigPelvisGizmo
+    400044: RigRArm1
+    400046: RigRArm1Gizmo
+    400048: RigRArm2
+    400050: RigRArm2Gizmo
+    400052: RigRArmPalm
+    400054: RigRArmPalmGizmo
+    400056: RigRibcage
+    400058: RigRibcageGizmo
+    400060: RigRLeg1
+    400062: RigRLeg2
+    400064: RigRLegAnkle
+    400066: RigRLegFoot1
+    400068: RigRLegPlatform
+    400070: RigSpine1
+    400072: RigSpine2
+    400074: RigTail1
+    400076: RigTail1Gizmo
+    400078: RigTail2
+    400080: RigTail2Gizmo
+    400082: RigTail3
+    400084: RigTail3Gizmo
+    400086: RigTail4
+    400088: RigTail4Gizmo
+    400090: Wand
+    2300000: Object007
+    2300002: Toon Wizard
+    2300004: //RootNode
+    2300006: Wand
+    3300000: Object007
+    3300002: Toon Wizard
+    3300004: //RootNode
+    3300006: Wand
+    4300000: Toon Wizard
+    4300002: Object007
+    4300004: Wand
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Toon Wizard
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 623fb4a284fd413438f8a7c7119d8ec3
+timeCreated: 1443775710
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Arrow
+    100002: Crossbow
+    100004: Dummy-Arrow
+    100006: Dummy-BowString
+    100008: Dummy-LHandWeapon
+    100010: Dummy-RHandWeapon
+    100012: Rig
+    100014: RigHead
+    100016: RigHeadGizmo
+    100018: RigLArm1
+    100020: RigLArm1Gizmo
+    100022: RigLArm2
+    100024: RigLArm2Gizmo
+    100026: RigLArmPalm
+    100028: RigLArmPalmGizmo
+    100030: RigLLeg1
+    100032: RigLLeg2
+    100034: RigLLegAnkle
+    100036: RigLLegFoot1
+    100038: RigLLegPlatform
+    100040: RigNeck
+    100042: RigPelvis
+    100044: RigPelvisGizmo
+    100046: RigRArm1
+    100048: RigRArm1Gizmo
+    100050: RigRArm2
+    100052: RigRArm2Gizmo
+    100054: RigRArmPalm
+    100056: RigRArmPalmGizmo
+    100058: RigRibcage
+    100060: RigRibcageGizmo
+    100062: RigRLeg1
+    100064: RigRLeg2
+    100066: RigRLegAnkle
+    100068: RigRLegFoot1
+    100070: RigRLegPlatform
+    100072: RigSpine1
+    100074: RigSpine2
+    100076: Toon Elven Archer
+    100078: //RootNode
+    400000: Arrow
+    400002: Crossbow
+    400004: Dummy-Arrow
+    400006: Dummy-BowString
+    400008: Dummy-LHandWeapon
+    400010: Dummy-RHandWeapon
+    400012: Rig
+    400014: RigHead
+    400016: RigHeadGizmo
+    400018: RigLArm1
+    400020: RigLArm1Gizmo
+    400022: RigLArm2
+    400024: RigLArm2Gizmo
+    400026: RigLArmPalm
+    400028: RigLArmPalmGizmo
+    400030: RigLLeg1
+    400032: RigLLeg2
+    400034: RigLLegAnkle
+    400036: RigLLegFoot1
+    400038: RigLLegPlatform
+    400040: RigNeck
+    400042: RigPelvis
+    400044: RigPelvisGizmo
+    400046: RigRArm1
+    400048: RigRArm1Gizmo
+    400050: RigRArm2
+    400052: RigRArm2Gizmo
+    400054: RigRArmPalm
+    400056: RigRArmPalmGizmo
+    400058: RigRibcage
+    400060: RigRibcageGizmo
+    400062: RigRLeg1
+    400064: RigRLeg2
+    400066: RigRLegAnkle
+    400068: RigRLegFoot1
+    400070: RigRLegPlatform
+    400072: RigSpine1
+    400074: RigSpine2
+    400076: Toon Elven Archer
+    400078: //RootNode
+    2300000: Arrow
+    3300000: Arrow
+    4300000: Arrow
+    4300002: Toon Elven Archer
+    4300004: Crossbow
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Crossbow
+    13700002: Toon Elven Archer
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

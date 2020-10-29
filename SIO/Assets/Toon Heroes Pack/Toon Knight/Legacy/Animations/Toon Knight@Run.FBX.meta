@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: 9ea59d241feac6842879c47ac772a7fb
+timeCreated: 1442906482
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Dummy-LHandWeapon
+    100002: Dummy-RHandWeapon
+    100004: Knight
+    100006: Rig
+    100008: RigHead
+    100010: RigHeadGizmo
+    100012: RigLArm1
+    100014: RigLArm1Gizmo
+    100016: RigLArm2
+    100018: RigLArm2Gizmo
+    100020: RigLArmPalm
+    100022: RigLArmPalmGizmo
+    100024: RigLLeg1
+    100026: RigLLeg2
+    100028: RigLLegAnkle
+    100030: RigLLegFoot1
+    100032: RigLLegPlatform
+    100034: RigNeck
+    100036: RigPelvis
+    100038: RigPelvisGizmo
+    100040: RigRArm1
+    100042: RigRArm1Gizmo
+    100044: RigRArm2
+    100046: RigRArm2Gizmo
+    100048: RigRArmPalm
+    100050: RigRArmPalmGizmo
+    100052: RigRibcage
+    100054: RigRibcageGizmo
+    100056: RigRLeg1
+    100058: RigRLeg2
+    100060: RigRLegAnkle
+    100062: RigRLegFoot1
+    100064: RigRLegPlatform
+    100066: RigSpine1
+    100068: RigSpine2
+    100070: RigTail1
+    100072: RigTail1Gizmo
+    100074: RigTail2
+    100076: RigTail2Gizmo
+    100078: RigTail3
+    100080: RigTail3Gizmo
+    100082: RigTail4
+    100084: RigTail4Gizmo
+    100086: Shield
+    100088: Sword
+    100090: //RootNode
+    400000: Dummy-LHandWeapon
+    400002: Dummy-RHandWeapon
+    400004: Knight
+    400006: Rig
+    400008: RigHead
+    400010: RigHeadGizmo
+    400012: RigLArm1
+    400014: RigLArm1Gizmo
+    400016: RigLArm2
+    400018: RigLArm2Gizmo
+    400020: RigLArmPalm
+    400022: RigLArmPalmGizmo
+    400024: RigLLeg1
+    400026: RigLLeg2
+    400028: RigLLegAnkle
+    400030: RigLLegFoot1
+    400032: RigLLegPlatform
+    400034: RigNeck
+    400036: RigPelvis
+    400038: RigPelvisGizmo
+    400040: RigRArm1
+    400042: RigRArm1Gizmo
+    400044: RigRArm2
+    400046: RigRArm2Gizmo
+    400048: RigRArmPalm
+    400050: RigRArmPalmGizmo
+    400052: RigRibcage
+    400054: RigRibcageGizmo
+    400056: RigRLeg1
+    400058: RigRLeg2
+    400060: RigRLegAnkle
+    400062: RigRLegFoot1
+    400064: RigRLegPlatform
+    400066: RigSpine1
+    400068: RigSpine2
+    400070: RigTail1
+    400072: RigTail1Gizmo
+    400074: RigTail2
+    400076: RigTail2Gizmo
+    400078: RigTail3
+    400080: RigTail3Gizmo
+    400082: RigTail4
+    400084: RigTail4Gizmo
+    400086: Shield
+    400088: Sword
+    400090: //RootNode
+    2300000: Shield
+    2300002: Sword
+    3300000: Shield
+    3300002: Sword
+    4300000: Knight
+    4300002: Shield
+    4300004: Sword
+    7400000: Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Knight
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Knight
+        weight: 1
+      - path: Rig
+        weight: 1
+      - path: RigHeadGizmo
+        weight: 1
+      - path: RigLArm1Gizmo
+        weight: 1
+      - path: RigLArm2Gizmo
+        weight: 1
+      - path: RigLArmPalmGizmo
+        weight: 1
+      - path: RigLLegPlatform
+        weight: 1
+      - path: RigPelvis
+        weight: 1
+      - path: RigPelvis/RigLLeg1
+        weight: 1
+      - path: RigPelvis/RigLLeg1/RigLLeg2
+        weight: 1
+      - path: RigPelvis/RigLLeg1/RigLLeg2/RigLLegAnkle
+        weight: 1
+      - path: RigPelvis/RigLLeg1/RigLLeg2/RigLLegAnkle/RigLLegFoot1
+        weight: 1
+      - path: RigPelvis/RigRLeg1
+        weight: 1
+      - path: RigPelvis/RigRLeg1/RigRLeg2
+        weight: 1
+      - path: RigPelvis/RigRLeg1/RigRLeg2/RigRLegAnkle
+        weight: 1
+      - path: RigPelvis/RigRLeg1/RigRLeg2/RigRLegAnkle/RigRLegFoot1
+        weight: 1
+      - path: RigPelvis/RigSpine1
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm/Dummy-LHandWeapon
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigLArm1/RigLArm2/RigLArmPalm/Dummy-LHandWeapon/Shield
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigNeck
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigNeck/RigHead
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm/Dummy-RHandWeapon
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigRArm1/RigRArm2/RigRArmPalm/Dummy-RHandWeapon/Sword
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigTail1
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigTail1/RigTail2
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigTail1/RigTail2/RigTail3
+        weight: 1
+      - path: RigPelvis/RigSpine1/RigSpine2/RigRibcage/RigTail1/RigTail2/RigTail3/RigTail4
+        weight: 1
+      - path: RigPelvisGizmo
+        weight: 1
+      - path: RigRArm1Gizmo
+        weight: 1
+      - path: RigRArm2Gizmo
+        weight: 1
+      - path: RigRArmPalmGizmo
+        weight: 1
+      - path: RigRibcageGizmo
+        weight: 1
+      - path: RigRLegPlatform
+        weight: 1
+      - path: RigTail1Gizmo
+        weight: 1
+      - path: RigTail2Gizmo
+        weight: 1
+      - path: RigTail3Gizmo
+        weight: 1
+      - path: RigTail4Gizmo
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

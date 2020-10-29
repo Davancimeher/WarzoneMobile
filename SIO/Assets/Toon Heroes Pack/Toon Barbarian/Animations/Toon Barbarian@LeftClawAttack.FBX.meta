@@ -1,0 +1,167 @@
+fileFormatVersion: 2
+guid: 0017a836e11a27d4b8a4ec486742bb22
+timeCreated: 1443515093
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Claw Left
+    100002: Claw Right
+    100004: Dummy-LHandWeapon
+    100006: Dummy-RHandWeapon
+    100008: Rig
+    100010: RigCape1
+    100012: RigCape1Gizmo
+    100014: RigCape2
+    100016: RigCape2Gizmo
+    100018: RigCape3
+    100020: RigCape3Gizmo
+    100022: RigHead
+    100024: RigHeadGizmo
+    100026: RigLArm1
+    100028: RigLArm1Gizmo
+    100030: RigLArm2
+    100032: RigLArm2Gizmo
+    100034: RigLArmPalm
+    100036: RigLArmPalmGizmo
+    100038: RigLLeg1
+    100040: RigLLeg2
+    100042: RigLLegAnkle
+    100044: RigLLegFoot1
+    100046: RigLLegPlatform
+    100048: RigNeck
+    100050: RigPelvis
+    100052: RigPelvisGizmo
+    100054: RigRArm1
+    100056: RigRArm1Gizmo
+    100058: RigRArm2
+    100060: RigRArm2Gizmo
+    100062: RigRArmPalm
+    100064: RigRArmPalmGizmo
+    100066: RigRibcage
+    100068: RigRibcageGizmo
+    100070: RigRLeg1
+    100072: RigRLeg2
+    100074: RigRLegAnkle
+    100076: RigRLegFoot1
+    100078: RigRLegPlatform
+    100080: RigSpine1
+    100082: RigSpine2
+    100084: Toon Barbarian
+    100086: //RootNode
+    400000: Claw Left
+    400002: Claw Right
+    400004: Dummy-LHandWeapon
+    400006: Dummy-RHandWeapon
+    400008: Rig
+    400010: RigCape1
+    400012: RigCape1Gizmo
+    400014: RigCape2
+    400016: RigCape2Gizmo
+    400018: RigCape3
+    400020: RigCape3Gizmo
+    400022: RigHead
+    400024: RigHeadGizmo
+    400026: RigLArm1
+    400028: RigLArm1Gizmo
+    400030: RigLArm2
+    400032: RigLArm2Gizmo
+    400034: RigLArmPalm
+    400036: RigLArmPalmGizmo
+    400038: RigLLeg1
+    400040: RigLLeg2
+    400042: RigLLegAnkle
+    400044: RigLLegFoot1
+    400046: RigLLegPlatform
+    400048: RigNeck
+    400050: RigPelvis
+    400052: RigPelvisGizmo
+    400054: RigRArm1
+    400056: RigRArm1Gizmo
+    400058: RigRArm2
+    400060: RigRArm2Gizmo
+    400062: RigRArmPalm
+    400064: RigRArmPalmGizmo
+    400066: RigRibcage
+    400068: RigRibcageGizmo
+    400070: RigRLeg1
+    400072: RigRLeg2
+    400074: RigRLegAnkle
+    400076: RigRLegFoot1
+    400078: RigRLegPlatform
+    400080: RigSpine1
+    400082: RigSpine2
+    400084: Toon Barbarian
+    400086: //RootNode
+    2300000: Claw Left
+    2300002: Claw Right
+    3300000: Claw Left
+    3300002: Claw Right
+    4300000: Claw Left
+    4300002: Claw Right
+    4300004: Toon Barbarian
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Toon Barbarian
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
