@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+
 public class PlayerMouvement : Photon.MonoBehaviour
 {
     private PhotonView PhotonView;
@@ -33,18 +35,21 @@ public class PlayerMouvement : Photon.MonoBehaviour
             Destroy(camera);
             Destroy(PlayerAgent);
             Destroy(this);
-
+        }
+        if(SceneManager.GetActiveScene().name != "Game")
+        {
+            IsWaitingRoom = true;
         }
     }
 
-    void Update()
+    private void Update()
     {
-        if(photonView.isMine)
-              CheckInput();
+        if (photonView.isMine)
+            CheckInput();
         else
             SmoothMove();
     }
-    private void OnPhotonSerializeView(PhotonStream stream,PhotonMessageInfo info)
+    private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (UseTransformView) return;
 
@@ -78,9 +83,9 @@ public class PlayerMouvement : Photon.MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
-        if(Physics.Raycast(ray,out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            if(!IsWaitingRoom)
+            if (!IsWaitingRoom)
                 agentManagement.MoveAllCrew(hit.point);
 
             PlayerAgent.SetDestination(hit.point);

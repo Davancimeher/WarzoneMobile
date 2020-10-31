@@ -72,10 +72,9 @@ public class PlayerLayoutGroup : MonoBehaviour
 
         if (photonPlayer.IsLocal)
         {
-            Debug.Log("wtfff");
-            var player = PhotonNetwork.player;
-            int playerSpawnIndex = player.ID % SpawnPonts.Count;
-            myObj = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "WaitingPlayerprefab"), SpawnPonts[playerSpawnIndex].position, Quaternion.identity, 0);
+            int playerSpawnIndex = PhotonNetwork.player.ID % SpawnPonts.Count;
+            string PlayerPrefabsName = DataHolder.Instance.prefabsName[PlayerNetwork.Instance.PrefabID];
+            myObj = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Players Prefab", PlayerPrefabsName), SpawnPonts[playerSpawnIndex].position, Quaternion.identity, 0);
             Debug.Log("Instantiate waiting Player");
             UICamera.SetActive(false);
         }

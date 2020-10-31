@@ -117,6 +117,8 @@ GameObject:
   - component: {fileID: 6261009291080651664}
   - component: {fileID: 4242836486872698333}
   - component: {fileID: 3870443087194631970}
+  - component: {fileID: 9109436009307214539}
+  - component: {fileID: 3435579021591983374}
   m_Layer: 0
   m_Name: Macho
   m_TagString: Untagged
@@ -140,7 +142,6 @@ Transform:
   - {fileID: 569179618998310507}
   - {fileID: 2344220030685632302}
   - {fileID: 4155433929689954368}
-  - {fileID: 7268445356130634862}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,7 +244,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 4242836486872698333}
-  - {fileID: 0}
+  - {fileID: 3435579021591983374}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -365,6 +366,88 @@ NavMeshAgent:
   m_BaseOffset: -0.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &9109436009307214539
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748903443395005010}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b555b67d2a9eaf44e860149d119a70a6, type: 3}
+  m_Controller: {fileID: 9100000, guid: addf75edce5fdb343ab37342ceb1283f, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3435579021591983374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748903443395005010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 0
+    Name: Walk
+  - Type: 9
+    SynchronizeType: 0
+    Name: Run
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack 01
+  - Type: 9
+    SynchronizeType: 0
+    Name: Attack 02
+  - Type: 9
+    SynchronizeType: 0
+    Name: Defend
+  - Type: 9
+    SynchronizeType: 0
+    Name: Jump
+  - Type: 9
+    SynchronizeType: 0
+    Name: Take Damage
+  - Type: 9
+    SynchronizeType: 0
+    Name: Die
+  - Type: 9
+    SynchronizeType: 0
+    Name: Cast Spell
+  - Type: 9
+    SynchronizeType: 0
+    Name: Victory
+  - Type: 9
+    SynchronizeType: 0
+    Name: Upset
+  - Type: 9
+    SynchronizeType: 0
+    Name: Double Attack
+  - Type: 9
+    SynchronizeType: 0
+    Name: Jump Attack
+  - Type: 1
+    SynchronizeType: 0
+    Name: Blend
+  - Type: 1
+    SynchronizeType: 0
+    Name: input
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &1231606333950570128
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,96 +641,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2343905214360265133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342423255481795692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 0
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 0
-    Name: Run
-  - Type: 9
-    SynchronizeType: 0
-    Name: Attack 01
-  - Type: 9
-    SynchronizeType: 0
-    Name: Attack 02
-  - Type: 9
-    SynchronizeType: 0
-    Name: Defend
-  - Type: 9
-    SynchronizeType: 0
-    Name: Jump
-  - Type: 9
-    SynchronizeType: 0
-    Name: Take Damage
-  - Type: 9
-    SynchronizeType: 0
-    Name: Die
-  - Type: 9
-    SynchronizeType: 0
-    Name: Cast Spell
-  - Type: 9
-    SynchronizeType: 0
-    Name: Victory
-  - Type: 9
-    SynchronizeType: 0
-    Name: Upset
-  - Type: 9
-    SynchronizeType: 0
-    Name: Double Attack
-  - Type: 9
-    SynchronizeType: 0
-    Name: Jump Attack
-  - Type: 1
-    SynchronizeType: 0
-    Name: Blend
-  - Type: 1
-    SynchronizeType: 0
-    Name: input
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
---- !u!114 &2343905214360265134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342423255481795692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 3
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 2343905214360265133}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
-  isRuntimeInstantiated: 0
 --- !u!114 &2343905214648934476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,13 +1221,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114494102822409034, guid: 01813997e9028a540adc60d2fe8a3f80, type: 3}
     - {fileID: 136567847200711078, guid: 01813997e9028a540adc60d2fe8a3f80, type: 3}
+    - {fileID: 95863266876289056, guid: 01813997e9028a540adc60d2fe8a3f80, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 01813997e9028a540adc60d2fe8a3f80, type: 3}
---- !u!1 &2342423255481795692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1914069115889094, guid: 01813997e9028a540adc60d2fe8a3f80,
-    type: 3}
-  m_PrefabInstance: {fileID: 2343905214360265130}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2344220030685632302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4344089466009220, guid: 01813997e9028a540adc60d2fe8a3f80,
@@ -1346,71 +1334,4 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1813869259887187977, guid: 04e4b61edac24934e912f9b15cb60717,
     type: 3}
   m_PrefabInstance: {fileID: 2343905214648934473}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &7268445356130998472
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7076938326213599079}
-    m_Modifications:
-    - target: {fileID: 168844, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_Name
-      value: Toon Knight-Blue
-      objectReference: {fileID: 0}
-    - target: {fileID: 168844, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ef4102e77f3b516478eb50f6ed9be44b, type: 3}
---- !u!4 &7268445356130634862 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 496806, guid: ef4102e77f3b516478eb50f6ed9be44b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7268445356130998472}
   m_PrefabAsset: {fileID: 0}

@@ -30,12 +30,6 @@ public class PlayerNetwork : MonoBehaviour
     public byte PrefabID=0;
     public int AvatarId = 0;
 
-    public List<string> prefabsName = new List<string>
-    {
-        "Machou",
-        "berz"
-    };
-
     //#region timer region
     //bool startTimer = false;
     //double timerIncrementValue;
@@ -208,10 +202,13 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_CreatePlayer()
     {
-        float randomValue = Random.Range(0f, 5f);
         _PlayerManagement = GameObject.FindObjectOfType<PlayerManagement>();
-         var players=  PhotonNetwork.player;
-        GameObject obj = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), _PlayerManagement.spawnPoints[players.ID].position, Quaternion.identity, 0);
+
+        string PrefabName = DataHolder.Instance.prefabsName[PrefabID];
+
+        int playerSpawnIndex = PhotonNetwork.player.ID % _PlayerManagement.spawnPoints.Count;
+
+        GameObject obj = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Players Prefab", PrefabName), _PlayerManagement.spawnPoints[playerSpawnIndex].position, Quaternion.identity, 0);
         CurrentPlayer = obj.GetComponent<PlayerMouvement>();
         PhotonView pv = obj.GetComponent<PhotonView>();
         PhotonPlayer player = PhotonNetwork.player;
