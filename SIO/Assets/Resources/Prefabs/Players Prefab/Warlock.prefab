@@ -60,7 +60,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 40
+  far clip plane: 100
   field of view: 45
   orthographic: 0
   orthographic size: 5
@@ -877,8 +877,8 @@ MonoBehaviour:
   - {fileID: 5468585818078520804}
   - {fileID: 6820812098546965815}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!54 &2875080360496626601
