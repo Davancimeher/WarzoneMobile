@@ -5,12 +5,9 @@ using UnityEngine;
 public class DataHolder : MonoBehaviour
 {
     public static DataHolder Instance;
+    public UIDataHolder UIDataHolder;
 
-    public Dictionary<byte, string> prefabsName = new Dictionary<byte, string>()
-    {
-        { 0,"Berz" },
-        { 1,"Machou" },
-    };
+    public Dictionary<byte, string> prefabsName = new Dictionary<byte, string>();
 
     void Awake()
     {
@@ -27,6 +24,14 @@ public class DataHolder : MonoBehaviour
             }
         }
 
+      
         DontDestroyOnLoad(this.gameObject);
+    }
+    private void Start()
+    {
+        foreach (var character in UIDataHolder.characterDatas)
+        {
+            prefabsName.Add(character.ID, character.name);
+        }
     }
 }

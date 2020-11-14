@@ -5,31 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public List<Button> AvatarsButton = new List<Button>();
-
-    public List<Button> PrefabssButton = new List<Button>();
-
     private Dictionary<int, Button> AvatarsDict = new Dictionary<int, Button>();
-    private Dictionary<int, Button> PrefabDict = new Dictionary<int, Button>();
+    public Dictionary<int, Character> PrefabDict = new Dictionary<int, Character>();
 
     public InputField NameinputField;
 
     private Button AvatarSelectedButton = null;
-    private Button PrefabSelectedButton = null;
+    private GameObject PrefabSelectedButton = null;
 
     private void Start()
     {
-        foreach (var avatarButton in AvatarsButton)
-        {
-            Avatar avatar = avatarButton.GetComponent<Avatar>();
-            AvatarsDict.Add(avatar.AvatarId, avatarButton);
-        }
-        foreach (var prefabButton in PrefabssButton)
-        {
-            Character prefab = prefabButton.GetComponent<Character>();
-            PrefabDict.Add(prefab.prefabId, prefabButton);
-        }
-
         GetPlayerInfo();
     }
 
@@ -82,22 +67,20 @@ public class PlayerInfo : MonoBehaviour
     }
     public void SetSelectedPrefabButton(int id)
     {
-
-        //set new button
-        Button newButton = PrefabDict[id];
-
-        Image newImage = newButton.GetComponent<Image>();
-        newImage.color = Color.green;
-       
-        
-        if (PrefabSelectedButton != null)
+        if(PrefabSelectedButton == null)
         {
-            //reset oldbutton
-            Image oldImage = PrefabSelectedButton.GetComponent<Image>();
-            oldImage.color = Color.red;
+            PrefabSelectedButton = PrefabDict[id].SelectedMask;
+            PrefabSelectedButton.SetActive(true);
         }
-
-        PrefabSelectedButton = newButton;
+        else
+        {
+            PrefabSelectedButton.SetActive(false);
+            GameObject NewMask = PrefabDict[id].SelectedMask;
+            NewMask.SetActive(true);
+            PrefabSelectedButton = NewMask;
+        }
+        //set new button
+      
 
     }
 }

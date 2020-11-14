@@ -218,7 +218,7 @@ public class PlayerNetwork : MonoBehaviour
 
         player.SetCustomProperties(pp);
 
-        UIManagement uiM = GameObject.FindObjectOfType<UIManagement>();
+        UIInGameManagement uiM = GameObject.FindObjectOfType<UIInGameManagement>();
         if(uiM != null)
         {
             uiM.DisableWaitingPanel();

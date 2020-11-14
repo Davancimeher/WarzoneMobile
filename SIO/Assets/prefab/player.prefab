@@ -675,6 +675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b4c8fee6140344094eecb9a58ae345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
+  agentManagement: {fileID: 0}
+  id: 0
+  IsWaitingRoom: 0
 --- !u!114 &584729911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,8 +702,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1002251174453043430}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!1 &7635953537971375639

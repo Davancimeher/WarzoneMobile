@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     public byte prefabId;
     public Image PrefabImageImage;
     public PlayerInfo PlayerInfo;
+    public GameObject SelectedMask;
 
     public void SetPrefab()
     {

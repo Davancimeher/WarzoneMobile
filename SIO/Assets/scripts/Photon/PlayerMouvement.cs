@@ -15,7 +15,7 @@ public class PlayerMouvement : Photon.MonoBehaviour
 
     public float Health;
 
-    private bool UseTransformView = true;
+    private bool UseTransformView = false;
     private Animator _animator;
     private NavMeshAgent PlayerAgent;
     public AgentManagement agentManagement;
@@ -33,8 +33,8 @@ public class PlayerMouvement : Photon.MonoBehaviour
         {
             var camera = GetComponentInChildren<Camera>().gameObject;
             Destroy(camera);
-            Destroy(PlayerAgent);
-            Destroy(this);
+            //Destroy(PlayerAgent);
+            //Destroy(this);
         }
         if(SceneManager.GetActiveScene().name != "Game")
         {
@@ -55,13 +55,11 @@ public class PlayerMouvement : Photon.MonoBehaviour
 
         if (stream.isWriting)
         {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
+            stream.SendNext(PlayerAgent.destination);
         }
         else
         {
             TargetPosition = (Vector3)stream.ReceiveNext();
-            TargetRotation = (Quaternion)stream.ReceiveNext();
         }
     }
     private void CheckInput()
@@ -86,8 +84,9 @@ public class PlayerMouvement : Photon.MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             if (!IsWaitingRoom)
+            {
                 agentManagement.MoveAllCrew(hit.point);
-
+            }
             PlayerAgent.SetDestination(hit.point);
         }
     }
