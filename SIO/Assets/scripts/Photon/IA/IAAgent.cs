@@ -27,9 +27,6 @@ public class IAAgent : Photon.MonoBehaviour
     private CapsuleCollider BodyCollider;
     public Image sliderBackgroungImage;
 
-    private bool capturingIssueFixed = false;
-    private bool ownerLeaveIssueFixed = false;
-
     private int actualCapturing = 0;
     // Start is called before the first frame update
 
@@ -58,7 +55,7 @@ public class IAAgent : Photon.MonoBehaviour
             {
                 //owner leave game : activate collider
                 SendOwnerLeave(MyPhotonView.viewID,1f);
-                ownerLeaveIssueFixed = true;
+               // ownerLeaveIssueFixed = true;
             }
         }
         if (agent.hasPath)
@@ -375,24 +372,6 @@ public class IAAgent : Photon.MonoBehaviour
                 AGENT.timeToRes = 0;
                 SendUpdateTime();
                 SendUpdateOwner(photonView);
-
-
-                // RPC_TimeBroadcastingFunction(PhotonTargets.All);
-
-
-                //string key = "FreeAgent" + AGENT.id.ToString();
-                //PhotonNetwork.room.CustomProperties.Remove(key);
-
-                //string keyOwned = "OwnedAgent" + AGENT.id.ToString();
-                //if (!PhotonNetwork.room.CustomProperties.ContainsKey(keyOwned))
-                //{
-                //    PhotonNetwork.room.CustomProperties.Add(keyOwned, photonView.ownerId);
-                //}
-
-                //OwnerAgent = photonView.gameObject.GetComponent<NavMeshAgent>();
-
-                //PlayerManagement.Instance.ModifyCrew(photonView.owner, this);
-                //owner = photonView;
             }
 
         }
