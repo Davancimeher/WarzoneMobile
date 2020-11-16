@@ -158,9 +158,6 @@ public class PlayerNetwork : MonoBehaviour
     [PunRPC]
     private void RPC_LoadedGameScene(PhotonPlayer photonPlayer)
     {
-
-        PlayerManagement.Instance.addPlayerStats(photonPlayer);
-
         PlayersInGame++;
         if (PlayersInGame == PhotonNetwork.playerList.Length)
         {
@@ -169,36 +166,6 @@ public class PlayerNetwork : MonoBehaviour
             photonView.RPC("RPC_CreatePlayer", PhotonTargets.All);
         }
     }
-    public void NewHealth(PhotonPlayer photonPlayer, int health)
-    {
-        photonView.RPC("RPC_NewHealth", photonPlayer, health);
-    }
-    public void NewCrew(PhotonPlayer photonPlayer, IAAgent agent)
-    {
-        photonView.RPC("RPC_Newcrew", PhotonTargets.Others, agent.AGENT.id);
-    }
-
-    [PunRPC]
-    private void RPC_Newcrew(byte id)
-    {
-        //agentManagement = GameObject.FindObjectOfType<AgentManagement>();
-        //agentManagement.IAagentDict[id].owner = photonView;
-    }
-    [PunRPC]
-    private void RPC_NewHealth(int health)
-    {
-        if (CurrentPlayer == null) return;
-
-        if (health <= 0)
-        {
-            PhotonNetwork.Destroy(CurrentPlayer.gameObject);
-        }
-        else
-        {
-            CurrentPlayer.Health = health;
-        }
-    }
-
     [PunRPC]
     private void RPC_CreatePlayer()
     {

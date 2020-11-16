@@ -18,7 +18,7 @@ public class PlayerMouvement : Photon.MonoBehaviour
     private bool UseTransformView = false;
     private Animator _animator;
     private NavMeshAgent PlayerAgent;
-    public AgentManagement agentManagement;
+    public CrewManagement _CrewManagement;
     public int id;
     public bool IsWaitingRoom;
     private void Awake()
@@ -26,8 +26,6 @@ public class PlayerMouvement : Photon.MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         PhotonView = GetComponent<PhotonView>();
         PlayerAgent = GetComponent<NavMeshAgent>();
-        agentManagement = GameObject.FindObjectOfType<AgentManagement>();
-
         id = photonView.viewID;
         if (!photonView.isMine)
         {
@@ -85,7 +83,7 @@ public class PlayerMouvement : Photon.MonoBehaviour
         {
             if (!IsWaitingRoom)
             {
-                agentManagement.MoveAllCrew(hit.point);
+                _CrewManagement.MoveAllCrew(hit.point);
             }
             PlayerAgent.SetDestination(hit.point);
         }
