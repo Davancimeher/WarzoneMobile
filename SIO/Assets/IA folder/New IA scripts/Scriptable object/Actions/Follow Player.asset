@@ -9,15 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cd6d3676317da048b0a69149947806e, type: 3}
-  m_Name: EnemyState
+  m_Script: {fileID: 11500000, guid: ca0acd8a3b66ca448806d8452e4b2946, type: 3}
+  m_Name: Follow Player
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  lookRange: 3.5
-  lookSphereCastRaduis: 1
-  attackRange: 3
-  attaqueRate: 2
-  attaqueForce: 15
-  attaqueDamage: 50
-  searchDuration: 4
-  serachingTurnSpeed: 120

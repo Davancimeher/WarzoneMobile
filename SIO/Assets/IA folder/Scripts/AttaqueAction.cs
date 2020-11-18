@@ -15,7 +15,7 @@ public class AttaqueAction : Action
     private void Attack(StateController controller)
     {
 
-        if (controller.navMeshAgent.remainingDistance <= controller.navMeshAgent.stoppingDistance && !controller.navMeshAgent.pathPending)
+        if (controller.navMeshAgent.remainingDistance <= controller.enemyStats.attackRange && !controller.navMeshAgent.pathPending)
         {
             if(controller.chaseTarget != null)
             {

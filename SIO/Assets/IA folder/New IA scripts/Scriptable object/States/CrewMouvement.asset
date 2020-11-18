@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02786d8b1bef9c44b4a494e59d1723f, type: 3}
+  m_Name: CrewMouvement
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 8bafd6ff0e04567449d6922c47312f75, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 65fcfa7049aeaa14f95e7424f66131dc, type: 2}
+    trueState: {fileID: 11400000, guid: febb5567ed637d540bcb607eaa65fa9b, type: 2}
+    falseState: {fileID: 11400000, guid: 2b0eb0539bed53d4db3049160f1e520d, type: 2}
+  - decision: {fileID: 11400000, guid: cf252fd2c3a1bc244abd7acb5f4c1627, type: 2}
+    trueState: {fileID: 11400000, guid: 7a85119c7f16a7a41a6e89194936217c, type: 2}
+    falseState: {fileID: 11400000, guid: febb5567ed637d540bcb607eaa65fa9b, type: 2}
+  sceneGizmoColor: {r: 0, g: 0.11850643, b: 1, a: 1}

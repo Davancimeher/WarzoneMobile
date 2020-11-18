@@ -14,6 +14,8 @@ public class ChaseAction : Action
     {
         controller.navMeshAgent.destination = controller.chaseTarget.position;
         controller.navMeshAgent.isStopped = false;
+        controller.navMeshAgent.stoppingDistance = controller.enemyStats.attackRange;
+        controller.animator.SetFloat("input", controller.navMeshAgent.remainingDistance-controller.navMeshAgent.stoppingDistance);
     }
 
 }

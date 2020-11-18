@@ -31,8 +31,7 @@ public class PlayerMouvement : Photon.MonoBehaviour
         {
             var camera = GetComponentInChildren<Camera>().gameObject;
             Destroy(camera);
-            //Destroy(PlayerAgent);
-            //Destroy(this);
+            this.gameObject.tag = "Enemy";
         }
         if(SceneManager.GetActiveScene().name != "Game")
         {

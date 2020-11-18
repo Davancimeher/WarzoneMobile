@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class CrewManagement : MonoBehaviour
 {
-    public Dictionary<int,IAAgent> MyCrew = new Dictionary<int, IAAgent>();
-    private List<IAAgent> MyCrewMember = new List<IAAgent>();
-    public void addAgentToCrew(int id, IAAgent agent)
+    public Dictionary<int, StateController> MyCrew = new Dictionary<int, StateController>();
+    private List<StateController> MyCrewMember = new List<StateController>();
+
+    private SphereCollider ScanningSurface;
+
+    private void Start()
     {
+        ScanningSurface = GetComponent<SphereCollider>();
+    }
+    public void addAgentToCrew(int id, StateController agent)
+    {
+        id = MyCrew.Count + 1;
         if (!MyCrew.ContainsKey(id))
         {
             MyCrew.Add(id, agent);
@@ -34,7 +42,7 @@ public class CrewManagement : MonoBehaviour
 
         for (int i = 0; i < MyCrew.Count; i++)
         {
-            MyCrewMember[i].SendUpdateDestination(MyCrewMember[i].MyPhotonView.viewID, targetPostionList[i]);
+            MyCrewMember[i].NewDestination=targetPostionList[i];
         }
     }
     #region crew position 
