@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CrewManagement : MonoBehaviour
 {
-    public Dictionary<int, StateController> MyCrew = new Dictionary<int, StateController>();
-    private List<StateController> MyCrewMember = new List<StateController>();
-
+    public Dictionary<int, IAController> MyCrew = new Dictionary<int, IAController>();
+    private List<IAController> MyCrewMember = new List<IAController>();
+    public Color Color;
     private SphereCollider ScanningSurface;
+    public CrewManagement enemyCrew;
 
     private void Start()
     {
         ScanningSurface = GetComponent<SphereCollider>();
     }
-    public void addAgentToCrew(int id, StateController agent)
+    public void addAgentToCrew(IAController agent)
     {
-        id = MyCrew.Count + 1;
+        int id = MyCrew.Count + 1;
         if (!MyCrew.ContainsKey(id))
         {
             MyCrew.Add(id, agent);
@@ -32,7 +33,14 @@ public class CrewManagement : MonoBehaviour
         }
     }
 
-
+    public void AttackWithCrew()
+    {
+        foreach (var agent in MyCrew.Values)
+        {
+            agent.IAState = AgentState.Attacking;
+            agent.EnemyCrew = enemyCrew;
+        }
+    }
 
     public void MoveAllCrew(Vector3 destination)
     {

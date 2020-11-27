@@ -12,11 +12,11 @@ public class FollowPlayer : Action
     }
     public void MoveToPosition(StateController controller)
     {
-        if(oldDestination != controller.NewDestination)
+        controller.animator.SetFloat("input", controller.navMeshAgent.remainingDistance);
+        if (oldDestination != controller.NewDestination)
         {
             controller.navMeshAgent.SetDestination(controller.NewDestination);
             oldDestination = controller.NewDestination;
-            controller.animator.SetFloat("input", controller.navMeshAgent.remainingDistance);
         }
     }
 }

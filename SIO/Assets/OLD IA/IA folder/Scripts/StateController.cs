@@ -20,7 +20,7 @@ public class StateController : Photon.MonoBehaviour
     public State currentSate;
     public State remainState;
     public List<Transform> wayPointList;
-
+    public Color myColor;
 
     [HideInInspector] public NavMeshAgent navMeshAgent;
     [HideInInspector] public Animator animator;
@@ -73,6 +73,8 @@ public class StateController : Photon.MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        myColor = gameObject.GetComponentInChildren<Renderer>().material.GetColor("_Color01");
+
     }
 
     public void SetupAI(bool aiActivationFromTankManager, List<Transform> wayPointsFromTankManager)
@@ -174,7 +176,7 @@ public class StateController : Photon.MonoBehaviour
         ownerPV = actualPlayerCapturing;
         actualPlayerCapturing = null;
         CrewManagement crewManagement = ownerPV.GetComponent<CrewManagement>();
-        crewManagement.addAgentToCrew(1, this);
+        //crewManagement.addAgentToCrew(1, this);
     }
     public void scanningTheArea()
     {
@@ -197,5 +199,16 @@ public class StateController : Photon.MonoBehaviour
         }
 
         return returnEnemy;
+    }
+    public void SetColor()
+    {
+       var color= ownerPV.GetComponent<CrewManagement>().Color;
+        myColor = gameObject.GetComponentInChildren<Renderer>().material.GetColor("_Color01");
+        if(color != myColor)
+        {
+            var renderer= gameObject.GetComponentInChildren<Renderer>().material;
+            renderer.SetColor("_Color01", color);
+            gameObject.GetComponentInChildren<Renderer>().material = renderer;
+        }
     }
 }

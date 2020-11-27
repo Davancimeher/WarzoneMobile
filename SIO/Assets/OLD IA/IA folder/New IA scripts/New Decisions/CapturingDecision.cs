@@ -12,6 +12,8 @@ public class CapturingDecision : Decision
         {
             actualOwner = true;
             controller.capturingState = CapturingState.Captured;
+            controller.navMeshAgent.stoppingDistance = 0;
+            controller.SetColor();
         }
         return actualOwner;
     }
