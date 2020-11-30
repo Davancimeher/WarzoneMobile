@@ -15,12 +15,11 @@ public class IAAgent : Photon.MonoBehaviour
     public PhotonView owner = null;
     private Vector3 oldDestination;
     public int ID;
-    public AGENT AGENT = new AGENT(0);
     [SerializeField]
     public PhotonView MyPhotonView;
     private Slider slider;
     public Text timeText;
-    public float time;
+    public float time=5f;
     private bool OnCapturing = false;
     private AgentManagement AgentManagement;
     private SphereCollider CapturingCollider;
@@ -31,6 +30,7 @@ public class IAAgent : Photon.MonoBehaviour
     private bool ownerLeaveIssueFixed = false;
 
     private int actualCapturing = 0;
+
     // Start is called before the first frame update
 
 
@@ -45,26 +45,26 @@ public class IAAgent : Photon.MonoBehaviour
         BodyCollider = GetComponent<CapsuleCollider>();
         AgentManagement = GameObject.FindObjectOfType<AgentManagement>();
 
-        ID = AGENT.id;
-        time = AGENT.timeToRes;
         MyPhotonView = GetComponent<PhotonView>();
+        ID = MyPhotonView.viewID;
+
     }
 
     private void FixedUpdate()
     {
-        if (PhotonNetwork.isMasterClient)
-        {
-            if (time == 0 && owner == null)
-            {
-                //owner leave game : activate collider
-                SendOwnerLeave(MyPhotonView.viewID,1f);
-                ownerLeaveIssueFixed = true;
-            }
-        }
-        if (agent.hasPath)
-        {
-            _Animator.SetFloat("input", agent.remainingDistance);
-        }
+        //if (PhotonNetwork.isMasterClient)
+        //{
+        //    if (time == 0 && owner == null)
+        //    {
+        //        //owner leave game : activate collider
+        //        SendOwnerLeave(MyPhotonView.viewID,1f);
+        //        ownerLeaveIssueFixed = true;
+        //    }
+        //}
+        //if (agent.hasPath)
+        //{
+        //    _Animator.SetFloat("input", agent.remainingDistance);
+        //}
        
     }
     #endregion
@@ -97,10 +97,10 @@ public class IAAgent : Photon.MonoBehaviour
                 RecieveOnCapturing(content);
                 break;
             case IAAgentEvents.sendDestination:
-                RecieveDestinationUpdate(content);
+                //RecieveDestinationUpdate(content);
                 break;
             case IAAgentEvents.SendOwnerLeave:
-                RecieveOwnerLeave(content);
+               // RecieveOwnerLeave(content);
                 break;
             default:
                 break;
@@ -117,7 +117,7 @@ public class IAAgent : Photon.MonoBehaviour
                 time = (float)datas[1];
                 timeText.text = time.ToString("0.00");
                 slider.value = time / 5;
-                Debug.Log("recieving ID: " + ID + " Time : " + AGENT.timeToRes);
+                Debug.Log("recieving ID: " + ID + " Time : " + time);
             }
         }
     }
@@ -129,14 +129,14 @@ public class IAAgent : Photon.MonoBehaviour
             if ((int)datas[0] == MyPhotonView.viewID)
             {
 
-                if (AgentManagement._PlayerManagement.players.Count != PhotonNetwork.playerList.Length)
+                if (InGameDataManager.instance.players.Count != PhotonNetwork.playerList.Length)
                 {
                     AgentManagement._PlayerManagement.FindPlayerGameObjects();
                 }
 
                 int OwnerViewerId = (int)datas[1];
 
-                GameObject player = AgentManagement._PlayerManagement.players[OwnerViewerId];
+                GameObject player = InGameDataManager.instance.players[OwnerViewerId];
                 PhotonView pv = player.GetComponent<PhotonView>();
                 NavMeshAgent nmAgent = player.GetComponent<NavMeshAgent>();
 
@@ -209,32 +209,7 @@ public class IAAgent : Photon.MonoBehaviour
             }
         }
     }
-    private void RecieveDestinationUpdate(object content)
-    {
-        object[] datas = content as object[];
-        if (datas.Length == 4)
-        {
-            if ((int)datas[0] == MyPhotonView.viewID)
-            {
-                Vector3 pos = new Vector3((float)datas[1], (float)datas[2], (float)datas[3]);
-                Debug.Log("recieving destination : " + ID + " position : " + pos);
-                MoveToPosition(pos);
-            }
-        }
-    }
-    private void RecieveOwnerLeave(object content)
-    {
-        object[] datas = content as object[];
-        if (datas.Length == 2)
-        {
-            if ((int)datas[0] == MyPhotonView.viewID)
-            {
-                //reactivate capturing 
-                time = (float)datas[1];
-                CapturingCollider.enabled = true;
-            }
-        }
-    }
+
     #endregion
 
     #region Sender region
@@ -243,9 +218,9 @@ public class IAAgent : Photon.MonoBehaviour
         object[] datas = new object[]
         {
             MyPhotonView.viewID,
-            AGENT.timeToRes
+            time
         };
-        Debug.Log("sending ID: "+ID+" Time : "+AGENT.timeToRes);
+        Debug.Log("sending ID: "+ID+" Time : "+time);
 
         RaiseEventOptions options = new RaiseEventOptions()
         {
@@ -291,46 +266,7 @@ public class IAAgent : Photon.MonoBehaviour
         PhotonNetwork.RaiseEvent((byte)IAAgentEvents.OnCapturing, datas, false, options);
 
     }
-    public void SendUpdateDestination(int Id, Vector3 destination)
-    {
 
-        object[] datas = new object[]
-        {
-            Id,
-            destination.x,
-            destination.y,
-             destination.z
-        };
-
-        Debug.Log("sending New destination : " + ID + " is  : "+destination);
-
-        RaiseEventOptions options = new RaiseEventOptions()
-        {
-            CachingOption = EventCaching.DoNotCache,
-            Receivers = ReceiverGroup.All
-        };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.sendDestination, datas, false, options);
-
-    }
-    public void SendOwnerLeave(int Id,float time)
-    {
-
-        object[] datas = new object[]
-        {
-            Id,
-            time
-        };
-
-        Debug.Log("sending owner Leave: " + ID );
-
-        RaiseEventOptions options = new RaiseEventOptions()
-        {
-            CachingOption = EventCaching.DoNotCache,
-            Receivers = ReceiverGroup.All
-        };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.SendOwnerLeave, datas, false, options);
-
-    }
     #endregion
 
 
@@ -355,7 +291,6 @@ public class IAAgent : Photon.MonoBehaviour
         {
             SendUpdateCapturing(true,photonView.viewID);
         }
-
     }
     private void OnTriggerStay(Collider other)
     {
@@ -364,35 +299,17 @@ public class IAAgent : Photon.MonoBehaviour
 
         if (photonView != null && playerMouvement != null)
         {
-            if (AGENT.timeToRes >= 0)
+            if (time >= 0)
             {
-                AGENT.timeToRes -= Time.deltaTime;
+                time -= Time.deltaTime;
                 //timeText.text = AGENT.timeToRes.ToString();
-                slider.value = AGENT.timeToRes / 5;
+                slider.value = time / 5;
             }
-            if (AGENT.timeToRes < 0 && owner == null)
+            if (time < 0 && owner == null)
             {
-                AGENT.timeToRes = 0;
+                time = 0;
                 SendUpdateTime();
                 SendUpdateOwner(photonView);
-
-
-                // RPC_TimeBroadcastingFunction(PhotonTargets.All);
-
-
-                //string key = "FreeAgent" + AGENT.id.ToString();
-                //PhotonNetwork.room.CustomProperties.Remove(key);
-
-                //string keyOwned = "OwnedAgent" + AGENT.id.ToString();
-                //if (!PhotonNetwork.room.CustomProperties.ContainsKey(keyOwned))
-                //{
-                //    PhotonNetwork.room.CustomProperties.Add(keyOwned, photonView.ownerId);
-                //}
-
-                //OwnerAgent = photonView.gameObject.GetComponent<NavMeshAgent>();
-
-                //PlayerManagement.Instance.ModifyCrew(photonView.owner, this);
-                //owner = photonView;
             }
 
         }
@@ -405,7 +322,7 @@ public class IAAgent : Photon.MonoBehaviour
 
         if (photonView != null && playerMouvement != null)
         {
-            if (AGENT.timeToRes >= 0)
+            if (time >= 0)
             {
                 SendUpdateCapturing(false,0);
                 SendUpdateTime();
@@ -423,6 +340,7 @@ public class IAAgent : Photon.MonoBehaviour
         }
     }
 
+
    private void OnPhotonPlayerDisconnected (PhotonPlayer otherPlayer)
     {
         int viewdIdLeftPlayer =(int) otherPlayer.CustomProperties["PVID"];
@@ -436,14 +354,4 @@ public class IAAgent : Photon.MonoBehaviour
     }
     #endregion
 }
-public class AGENT
-{
-    public Vector3 position;
-    public float timeToRes = 5;
-    public byte id;
-    public float raduis = 1;
-    public AGENT(byte id)
-    {
-        this.id = id;
-    }
-}
+

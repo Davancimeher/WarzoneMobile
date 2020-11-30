@@ -33,25 +33,9 @@ public class AgentManagement : MonoBehaviour
 
         PhotonNetwork.automaticallySyncScene = true;
         _PlayerManagement = GameObject.FindObjectOfType<PlayerManagement>();
-        AgentInstantiation();
     }
 
    
-
-    private void AgentInstantiation()
-    {
-        if(PhotonNetwork.isMasterClient)
-        for (byte i = 0; i < agentNmb; i++)
-        {
-            AGENT agent = new AGENT(i);
-            agent.position = GetRandomLocation();
-            GameObject obj = PhotonNetwork.InstantiateSceneObject(Path.Combine("Prefabs", "IA"), agent.position, Quaternion.identity, 0,null);
-            var iaAgent = obj.GetComponent<IAAgent>();
-            iaAgent.AGENT = agent;
-        
-        }
-    }
-  
     Vector3 GetRandomLocation()
     {
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
@@ -64,6 +48,31 @@ public class AgentManagement : MonoBehaviour
         Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], Random.value);
 
         return point;
+    }
+    private List<Vector3> GetPositionListAround(Vector3 startPosition, float[] ringingDistanceArray, int[] ringingPositionArray)
+    {
+        List<Vector3> positionList = new List<Vector3>();
+        for (int i = 0; i < ringingDistanceArray.Length; i++)
+        {
+            positionList.AddRange(getPositionAround(startPosition, ringingDistanceArray[i], ringingPositionArray[i]));
+        }
+        return positionList;
+    }
+    private List<Vector3> getPositionAround(Vector3 startPosition, float distance, int positionCount)
+    {
+        List<Vector3> positionList = new List<Vector3>();
+        for (int i = 0; i < positionCount; i++)
+        {
+            float angle = i * (360 / positionCount);
+            Vector3 dir = ApplyRotationToVector(new Vector3(1, 0, 0), angle);
+            Vector3 position = startPosition + dir * distance;
+            positionList.Add(position);
+        }
+        return positionList;
+    }
+    private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
+    {
+        return Quaternion.Euler(0, angle, 0) * vec;
     }
     public void addAgentToCrew(int id,IAAgent agent)
     {
@@ -89,33 +98,9 @@ public class AgentManagement : MonoBehaviour
 
         for (int i = 0; i < MyCrew.Count; i++)
         {
-            MyCrewMember[i].SendUpdateDestination(MyCrewMember[i].MyPhotonView.viewID, targetPostionList[i]);
+          //  MyCrewMember[i].SendUpdateDestination(MyCrewMember[i].MyPhotonView.viewID, targetPostionList[i]);
         }
     }
-    private List<Vector3> GetPositionListAround(Vector3 startPosition, float[] ringingDistanceArray, int[] ringingPositionArray)
-    {
-        List<Vector3> positionList = new List<Vector3>();
-        for (int i = 0; i < ringingDistanceArray.Length; i++)
-        {
-            positionList.AddRange(getPositionAround(startPosition, ringingDistanceArray[i], ringingPositionArray[i]));
-        }
-        return positionList;
-    }
-    private List<Vector3> getPositionAround(Vector3 startPosition, float distance, int positionCount)
-    {
-        List<Vector3> positionList = new List<Vector3>();
-        for (int i = 0; i < positionCount; i++)
-        {
-            float angle = i * (360 / positionCount);
-            Vector3 dir = ApplyRotationToVector(new Vector3(1, 0, 0), angle);
-            Vector3 position = startPosition + dir * distance;
-            positionList.Add(position);
-        }
-        return positionList;
-    }
-    private Vector3 ApplyRotationToVector(Vector3 vec, float angle)
-    {
-        return Quaternion.Euler(0, angle,0 ) * vec;
-    }
+   
     #endregion
 }

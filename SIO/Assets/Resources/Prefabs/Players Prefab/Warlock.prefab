@@ -745,12 +745,14 @@ GameObject:
   - component: {fileID: 2398624260847009060}
   - component: {fileID: 7350701870247557928}
   - component: {fileID: 2223414093358469774}
+  - component: {fileID: 3209368519148644872}
   - component: {fileID: 2223414093358469775}
   - component: {fileID: 2875080360496626601}
   - component: {fileID: 5468585818078520804}
   - component: {fileID: 4950397064955037467}
   - component: {fileID: 1112093702538050290}
   - component: {fileID: 6820812098546965815}
+  - component: {fileID: 2827018741105802481}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -850,9 +852,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 0
-  agentManagement: {fileID: 0}
+  crewManager: {fileID: 3209368519148644872}
   id: 0
   IsWaitingRoom: 0
+--- !u!114 &3209368519148644872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890500574004535915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c49868bad76db4da6ed67edf9941c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2223414093358469775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,8 +891,8 @@ MonoBehaviour:
   - {fileID: 5468585818078520804}
   - {fileID: 6820812098546965815}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 1
-  instantiationId: 1
+  viewIdField: 0
+  instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!54 &2875080360496626601
@@ -1079,6 +1093,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &2827018741105802481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890500574004535915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98e4bc0b2fbae64c99d10b592fd643c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CrewManager: {fileID: 3209368519148644872}
 --- !u!1001 &3819704415756276268
 PrefabInstance:
   m_ObjectHideFlags: 0

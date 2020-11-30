@@ -159,7 +159,7 @@ public class PlayerNetwork : MonoBehaviour
     private void RPC_LoadedGameScene(PhotonPlayer photonPlayer)
     {
 
-        PlayerManagement.Instance.addPlayerStats(photonPlayer);
+        //PlayerManagement.Instance.addPlayerStats(photonPlayer);
 
         PlayersInGame++;
         if (PlayersInGame == PhotonNetwork.playerList.Length)
@@ -175,7 +175,7 @@ public class PlayerNetwork : MonoBehaviour
     }
     public void NewCrew(PhotonPlayer photonPlayer, IAAgent agent)
     {
-        photonView.RPC("RPC_Newcrew", PhotonTargets.Others, agent.AGENT.id);
+        photonView.RPC("RPC_Newcrew", PhotonTargets.Others, agent.ID);
     }
 
     [PunRPC]
@@ -206,9 +206,9 @@ public class PlayerNetwork : MonoBehaviour
 
         string PrefabName = DataHolder.Instance.prefabsName[PrefabID];
 
-        int playerSpawnIndex = PhotonNetwork.player.ID % _PlayerManagement.spawnPoints.Count;
+        int playerSpawnIndex = PhotonNetwork.player.ID % InGameDataManager.instance.spawnPoints.Count;
 
-        GameObject obj = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Players Prefab", PrefabName), _PlayerManagement.spawnPoints[playerSpawnIndex].position, Quaternion.identity, 0);
+        GameObject obj = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Players Prefab", PrefabName), InGameDataManager.instance.spawnPoints[playerSpawnIndex].position, Quaternion.identity, 0);
         CurrentPlayer = obj.GetComponent<PlayerMouvement>();
         PhotonView pv = obj.GetComponent<PhotonView>();
         PhotonPlayer player = PhotonNetwork.player;
