@@ -84,22 +84,22 @@ public class IAAgent : Photon.MonoBehaviour
     #region reciever region
     private void OnPhotonEvent(byte eventCode, object content, int senderId)
     {
-        IAAgentEvents eventType = (IAAgentEvents)eventCode;
+        NetworkEvent eventType = (NetworkEvent)eventCode;
         switch (eventType)
         {
-            case IAAgentEvents.sendTime:
+            case NetworkEvent.sendIATime:
                 RecieveUpdateTime(content);
                 break;
-            case IAAgentEvents.sendOwner:
+            case NetworkEvent.sendIAOwner:
                 RecieveUpdateOwner(content);
                 break;
-            case IAAgentEvents.OnCapturing:
+            case NetworkEvent.OnCapturingIA:
                 RecieveOnCapturing(content);
                 break;
-            case IAAgentEvents.sendDestination:
+            case NetworkEvent.sendIADestination:
                 RecieveDestinationUpdate(content);
                 break;
-            case IAAgentEvents.SendOwnerLeave:
+            case NetworkEvent.SendIAOwnerLeave:
                 RecieveOwnerLeave(content);
                 break;
             default:
@@ -252,7 +252,7 @@ public class IAAgent : Photon.MonoBehaviour
             CachingOption = EventCaching.DoNotCache,
             Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.sendTime, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendIATime, datas, false, options);
     }
     private void SendUpdateOwner(PhotonView _photonView)
     {
@@ -269,7 +269,7 @@ public class IAAgent : Photon.MonoBehaviour
             CachingOption = EventCaching.DoNotCache,
             Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.sendOwner, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendIAOwner, datas, false, options);
     }
     private void SendUpdateCapturing(bool OnCapturing,int viewId)
     {
@@ -288,7 +288,7 @@ public class IAAgent : Photon.MonoBehaviour
             CachingOption = EventCaching.DoNotCache,
             Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.OnCapturing, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.OnCapturingIA, datas, false, options);
 
     }
     public void SendUpdateDestination(int Id, Vector3 destination)
@@ -309,7 +309,7 @@ public class IAAgent : Photon.MonoBehaviour
             CachingOption = EventCaching.DoNotCache,
             Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.sendDestination, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendIADestination, datas, false, options);
 
     }
     public void SendOwnerLeave(int Id,float time)
@@ -328,7 +328,7 @@ public class IAAgent : Photon.MonoBehaviour
             CachingOption = EventCaching.DoNotCache,
             Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)IAAgentEvents.SendOwnerLeave, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.SendIAOwnerLeave, datas, false, options);
 
     }
     #endregion

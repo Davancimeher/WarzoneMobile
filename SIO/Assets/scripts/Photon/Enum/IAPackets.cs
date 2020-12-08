@@ -1,9 +1,13 @@
-﻿public enum IAAgentEvents : byte
+﻿public enum NetworkEvent : byte
 {
-    sendTime = 0,
-    sendOwner = 1,
-    OnCapturing=2,
-    sendDestination=3,
-    SendOwnerLeave=4
-
+    //IA
+    sendIATime = 0,
+    sendIAOwner = 1,
+    OnCapturingIA=2,
+    sendIADestination=3,
+    SendIAOwnerLeave=4,
+    // Game core
+    sendStartTime=5,
+    sendUpdateMatchTime=6,
+    sendEndMatch=7
 }

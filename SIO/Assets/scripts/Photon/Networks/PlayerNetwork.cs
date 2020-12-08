@@ -29,15 +29,8 @@ public class PlayerNetwork : MonoBehaviour
 
     public byte PrefabID=0;
     public int AvatarId = 0;
-
-    //#region timer region
-    //bool startTimer = false;
-    //double timerIncrementValue;
-    //double startTime;
-    //[SerializeField] double timer = 20;
-    //public Text TimerText;
-    //ExitGames.Client.Photon.Hashtable CustomeValue;
-    //#endregion
+    public NetworkMatch networkMatch;
+   
     void Awake()
     {
         if(PlayerNetwork.Instance == null)
@@ -167,6 +160,12 @@ public class PlayerNetwork : MonoBehaviour
             Debug.Log("All players in Game scene");
 
             photonView.RPC("RPC_CreatePlayer", PhotonTargets.All);
+
+            networkMatch = GameObject.FindObjectOfType<NetworkMatch>();
+            if (PhotonNetwork.isMasterClient)
+            {
+                networkMatch.StartMatchTime();
+            }
         }
     }
     public void NewHealth(PhotonPlayer photonPlayer, int health)

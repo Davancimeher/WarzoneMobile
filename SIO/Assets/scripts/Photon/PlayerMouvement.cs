@@ -46,8 +46,8 @@ public class PlayerMouvement : Photon.MonoBehaviour
     {
         if (photonView.isMine)
             CheckInput();
-        else
-            SmoothMove();
+        //else
+        //    SmoothMove();
     }
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

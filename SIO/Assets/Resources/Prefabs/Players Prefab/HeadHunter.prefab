@@ -549,7 +549,7 @@ NavMeshAgent:
   m_Radius: 0.49
   m_Speed: 8
   m_Acceleration: 500
-  avoidancePriority: 99
+  avoidancePriority: 1
   m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
@@ -636,7 +636,7 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: Blend
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: input
   m_SynchronizeLayers:
   - SynchronizeType: 0

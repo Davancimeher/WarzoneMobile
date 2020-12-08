@@ -1887,7 +1887,7 @@ MonoBehaviour:
     SynchronizeType: 0
     Name: Blend
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: input
   m_SynchronizeLayers:
   - SynchronizeType: 0
