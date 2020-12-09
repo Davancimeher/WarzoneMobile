@@ -164,7 +164,8 @@ public class PlayerNetwork : MonoBehaviour
             networkMatch = GameObject.FindObjectOfType<NetworkMatch>();
             if (PhotonNetwork.isMasterClient)
             {
-                networkMatch.StartMatchTime();
+                Debug.Log("start match");
+                networkMatch.StartMatch();
             }
         }
     }
@@ -218,10 +219,10 @@ public class PlayerNetwork : MonoBehaviour
         player.SetCustomProperties(pp);
 
         UIInGameManagement uiM = GameObject.FindObjectOfType<UIInGameManagement>();
-        if(uiM != null)
-        {
-            uiM.DisableWaitingPanel();
-        }
+        //if(uiM != null)
+        //{
+        //    uiM.DisableWaitingPanel();
+        //}
     }
 
     private IEnumerator C_SetPing()

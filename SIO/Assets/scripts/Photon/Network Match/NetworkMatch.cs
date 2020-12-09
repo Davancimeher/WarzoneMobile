@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum MatchStateEnum :  byte
+{
+    COUNTDOWN = 0,
+    RUNNING = 1,
+    ENDMATCH = 2
+}
 public class NetworkMatch : Photon.MonoBehaviour
 {
+    public MatchStateEnum MatchState = MatchStateEnum.COUNTDOWN;
+
     public int matchTime_S = 30;
-    public bool MatchRunning = false;
-    public Text time_ui;
-    public Text matchRunning_ui;
+    public int countdown_S = 2;
+
+
+    public UIInGameManagement uiGameManagement;
+
     #region Callback region
     private void OnEnable()
     {
@@ -27,44 +37,85 @@ public class NetworkMatch : Photon.MonoBehaviour
         NetworkEvent eventType = (NetworkEvent)eventCode;
         switch (eventType)
         {
-            case NetworkEvent.sendStartTime:
-                RecieveStartMatch(content);
+
+            case NetworkEvent.sendUpdateCountdown:
+                RecieveCountdownTime(content);
+                break;
+            case NetworkEvent.sendUpdateMatchState:
+                RecieveSUpdateMatchState(content);
 
                 break;
-
             case NetworkEvent.sendUpdateMatchTime:
 
                 RecieveUpdateTime(content);
 
                 break;
-            case NetworkEvent.sendEndMatch:
-                RecieveEndMatch(content);
+        }
+    }
+    public void StartMatch()
+    {
+        countdown_S = 5;
+        Debug.Log("countdonw master : " + countdown_S);
+
+        if (PhotonNetwork.isMasterClient)
+        {
+            MatchState = MatchStateEnum.COUNTDOWN;
+            SendUpdateMatchState();
+            uiGameManagement.updateMatchState(MatchState, matchTime_S, countdown_S);
+        }
+        StartCoroutine(UpdateCountDown());
+    }
+
+    public void ContinueMatch()
+    {
+        switch (MatchState)
+        {
+            case MatchStateEnum.COUNTDOWN:
+                StartCoroutine(UpdateCountDown());
+                break;
+            case MatchStateEnum.RUNNING:
+                StartCoroutine(UpdateMatchTime());
                 break;
         }
     }
-    public void StartMatchTime()
+    private IEnumerator UpdateCountDown()
     {
         if (PhotonNetwork.isMasterClient)
         {
-            // send start match
-            MatchRunning = true;
-            SendStartMatch();
+            while (MatchState == MatchStateEnum.COUNTDOWN)
+            {
+                yield return new WaitForSeconds(1);
+                countdown_S--;
+
+                if (countdown_S >= 0)
+                {
+                    SendUpdatecountdown();
+                }
+                else
+                {
+
+                    MatchState = MatchStateEnum.RUNNING;
+
+                    SendUpdateMatchState();
+
+                    StartCoroutine(UpdateMatchTime());
+
+                    StopCoroutine(UpdateCountDown());
+
+                }
+            }
 
         }
-        StartCoroutine(updateMatchTime());
     }
-        
-    private IEnumerator updateMatchTime()
+
+    private IEnumerator UpdateMatchTime()
     {
         if (PhotonNetwork.isMasterClient)
         {
-            while (MatchRunning)
+            while (MatchState == MatchStateEnum.RUNNING)
             {
-                Debug.LogError(matchTime_S);
-
                 yield return new WaitForSeconds(1);
                 matchTime_S--;
-                Debug.LogError(matchTime_S);
 
                 if (matchTime_S > 0)
                 {
@@ -73,61 +124,79 @@ public class NetworkMatch : Photon.MonoBehaviour
                 else
                 {
                     //send end match
-                    SendEndMatch();
+                    MatchState = MatchStateEnum.ENDMATCH;
+
+                    SendUpdateMatchState();
+
+                    // StopCoroutine(UpdateMatchTime());
                 }
             }
-           
+
         }
     }
-    private void RecieveStartMatch(object content)
+
+    private void RecieveCountdownTime(object content)
     {
         object[] datas = content as object[];
         if (datas.Length == 1)
         {
-
-            MatchRunning = (bool)datas[0];
-            matchRunning_ui.text = MatchRunning.ToString();
+            countdown_S = (int)datas[0];
+            uiGameManagement.updateCountdownUI(countdown_S);
         }
     }
+
+    private void RecieveSUpdateMatchState(object content)
+    {
+        object[] datas = content as object[];
+        if (datas.Length == 1)
+        {
+            MatchState = (MatchStateEnum)datas[0];
+            uiGameManagement.updateMatchState(MatchState, matchTime_S, countdown_S);
+        }
+    }
+
     private void RecieveUpdateTime(object content)
     {
         object[] datas = content as object[];
         if (datas.Length == 1)
         {
             matchTime_S = (int)datas[0];
-            time_ui.text = matchTime_S.ToString();
+            uiGameManagement.updateTimeUI(matchTime_S);
         }
     }
-    private void RecieveEndMatch(object content)
-    {
-        object[] datas = content as object[];
-        if (datas.Length == 1)
-        {
-
-            MatchRunning = (bool)datas[0];
-            matchRunning_ui.text = MatchRunning.ToString();
-        }
-    }
-    private void SendStartMatch()
+    private void SendUpdatecountdown()
     {
         object[] datas = new object[]
         {
-            true
+            countdown_S
         };
-
-        //  Debug.Log("sending On Capturing : " + ID + " is  : " + OnCapturing);
 
         RaiseEventOptions options = new RaiseEventOptions()
         {
             CachingOption = EventCaching.DoNotCache,
-            Receivers = ReceiverGroup.Others
+            Receivers = ReceiverGroup.All
         };
-        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendStartTime, datas, false, options);
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendUpdateCountdown, datas, false, options);
+    }
+
+    private void SendUpdateMatchState()
+    {
+        object[] datas = new object[]
+        {
+            (byte)MatchState
+        };
+
+        RaiseEventOptions options = new RaiseEventOptions()
+        {
+            CachingOption = EventCaching.DoNotCache,
+            Receivers = ReceiverGroup.All
+        };
+        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendUpdateMatchState, datas, false, options);
 
     }
+
     private void SendUpdateTime(int _matchTime)
     {
-
         object[] datas = new object[]
         {
             _matchTime
@@ -142,21 +211,13 @@ public class NetworkMatch : Photon.MonoBehaviour
         };
         PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendUpdateMatchTime, datas, false, options);
     }
-    private void SendEndMatch()
+
+    public void OnMasterClientSwitched(PhotonPlayer player)
     {
-        object[] datas = new object[]
+        Debug.LogError("OnMasterClientSwitched");
+        if (PhotonNetwork.isMasterClient)
         {
-            false
-        };
-
-        //  Debug.Log("sending On Capturing : " + ID + " is  : " + OnCapturing);
-
-        RaiseEventOptions options = new RaiseEventOptions()
-        {
-            CachingOption = EventCaching.DoNotCache,
-            Receivers = ReceiverGroup.All
-        };
-        PhotonNetwork.RaiseEvent((byte)NetworkEvent.sendEndMatch, datas, false, options);
-
+            ContinueMatch();
+        }
     }
 }

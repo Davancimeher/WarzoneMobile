@@ -7,7 +7,7 @@
     sendIADestination=3,
     SendIAOwnerLeave=4,
     // Game core
-    sendStartTime=5,
+    sendUpdateMatchState=5,
     sendUpdateMatchTime=6,
-    sendEndMatch=7
+    sendUpdateCountdown = 7,
 }
