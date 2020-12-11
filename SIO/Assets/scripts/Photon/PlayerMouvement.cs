@@ -19,6 +19,7 @@ public class PlayerMouvement : Photon.MonoBehaviour
     private Animator _animator;
     private NavMeshAgent PlayerAgent;
     public AgentManagement agentManagement;
+    public NetworkMatch networkMatch;
     public int id;
     public bool IsWaitingRoom;
     private void Awake()
@@ -33,12 +34,16 @@ public class PlayerMouvement : Photon.MonoBehaviour
         {
             var camera = GetComponentInChildren<Camera>().gameObject;
             Destroy(camera);
-            //Destroy(PlayerAgent);
-            //Destroy(this);
+            Destroy(PlayerAgent);
+            Destroy(this);
         }
-        if(SceneManager.GetActiveScene().name != "Game")
+        if (SceneManager.GetActiveScene().name != "Game")
         {
             IsWaitingRoom = true;
+        }
+        else
+        {
+            networkMatch = GameObject.FindObjectOfType<NetworkMatch>();
         }
     }
 
@@ -83,11 +88,19 @@ public class PlayerMouvement : Photon.MonoBehaviour
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(ray, out hit))
         {
-            if (!IsWaitingRoom)
+
+            if (IsWaitingRoom)
             {
-                agentManagement.MoveAllCrew(hit.point);
+                PlayerAgent.SetDestination(hit.point);
             }
-            PlayerAgent.SetDestination(hit.point);
+            else
+            {
+                if (networkMatch.MatchState == MatchStateEnum.RUNNING)
+                {
+                    agentManagement.MoveAllCrew(hit.point);
+                    PlayerAgent.SetDestination(hit.point);
+                }
+            }
         }
     }
 

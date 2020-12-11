@@ -13,11 +13,17 @@ public class NetworkMatch : Photon.MonoBehaviour
 {
     public MatchStateEnum MatchState = MatchStateEnum.COUNTDOWN;
 
-    public int matchTime_S = 30;
+    public int matchTime_S = 0;
     public int countdown_S = 2;
 
 
     public UIInGameManagement uiGameManagement;
+
+    private void Awake()
+    {
+        matchTime_S = (int)PhotonNetwork.room.CustomProperties["Time"] * 60;
+        countdown_S = 5;
+    }
 
     #region Callback region
     private void OnEnable()
@@ -54,9 +60,6 @@ public class NetworkMatch : Photon.MonoBehaviour
     }
     public void StartMatch()
     {
-        countdown_S = 5;
-        Debug.Log("countdonw master : " + countdown_S);
-
         if (PhotonNetwork.isMasterClient)
         {
             MatchState = MatchStateEnum.COUNTDOWN;
