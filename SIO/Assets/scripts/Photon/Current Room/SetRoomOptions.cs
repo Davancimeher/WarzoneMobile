@@ -61,6 +61,9 @@ public class SetRoomOptions : MonoBehaviour
         PhotonNetwork.room.SetCustomProperties(Costume);
 
         Debug.Log("is visible : " + PhotonNetwork.room.IsVisible + " , max player : " + PhotonNetwork.room.MaxPlayers+" Time : "+ PhotonNetwork.room.CustomProperties["Time"]);
+
+
+        //jus to test
     }
    
 }
