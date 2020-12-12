@@ -37,15 +37,21 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 16.5, y: -39}
   m_SizeDelta: {x: 687.69055, y: 72.252625}
 =======
+=======
+>>>>>>> parent of d260ca6... UI cleanup
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 194.3, y: 168.1}
   m_SizeDelta: {x: 365.4643, y: 41.727356}
+<<<<<<< HEAD
+>>>>>>> parent of d260ca6... UI cleanup
+=======
 >>>>>>> parent of d260ca6... UI cleanup
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8159830570006871379

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CreateRoom : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     #region statics variables
     private static List<int> times = new List<int> { 2, 5, 10 };
 
@@ -42,6 +43,11 @@ public class CreateRoom : MonoBehaviour
     private Text _roomName;
     private Text RoomName
 >>>>>>> parent of d260ca6... UI cleanup
+=======
+    [SerializeField]
+    private Text _roomName;
+    private Text RoomName
+>>>>>>> parent of d260ca6... UI cleanup
     {
         get { return _roomName; }
     }
@@ -49,9 +55,13 @@ public class CreateRoom : MonoBehaviour
     {
         ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
 <<<<<<< HEAD
+<<<<<<< HEAD
         Costume.Add("Time", currentRoomTime);
         Costume.Add("Count", 1);
 
+=======
+        Costume.Add("Time", 5);
+>>>>>>> parent of d260ca6... UI cleanup
 =======
         Costume.Add("Time", 5);
 >>>>>>> parent of d260ca6... UI cleanup
