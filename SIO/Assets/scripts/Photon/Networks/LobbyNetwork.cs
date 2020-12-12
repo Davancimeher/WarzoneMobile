@@ -55,6 +55,7 @@ public class LobbyNetwork : MonoBehaviour
     {
         ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
         Costume.Add("Time", 5);
+        Costume.Add("Count", 1);
         RoomOptions roomOptions = new RoomOptions()
         {
             IsVisible = true,

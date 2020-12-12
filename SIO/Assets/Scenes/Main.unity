@@ -4216,7 +4216,7 @@ MonoBehaviour:
   Parent: {fileID: 1451688353}
   _roomListingPrefab: {fileID: 2068468340035593315, guid: b736bb6900568794088a3928e4c25597,
     type: 3}
-  refreshButton: {fileID: 0}
+  refreshButton: {fileID: 940412776}
 --- !u!114 &568182912
 MonoBehaviour:
   m_ObjectHideFlags: 0
