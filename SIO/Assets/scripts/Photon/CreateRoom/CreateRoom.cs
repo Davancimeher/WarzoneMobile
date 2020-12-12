@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class CreateRoom : MonoBehaviour
 {
+<<<<<<< HEAD
     #region statics variables
     private static List<int> times = new List<int> { 2, 5, 10 };
 
@@ -36,35 +37,35 @@ public class CreateRoom : MonoBehaviour
         currentroomType = Convert.ToBoolean(RoomTypeDropDown.value);
     }
     private void OnEnable()
+=======
+    [SerializeField]
+    private Text _roomName;
+    private Text RoomName
+>>>>>>> parent of d260ca6... UI cleanup
     {
-        InitDropDowns();
-    }
-    private RoomOptions CreateRoomOptions()
-    {
-        GetValueFromUI();
-
-        ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
-        Costume.Add("Time", currentRoomTime);
-        Costume.Add("Count", 1);
-
-        RoomOptions roomOptions = new RoomOptions()
-        {
-            IsVisible = currentroomType,
-            IsOpen = true,
-            MaxPlayers = currentMaxPlayers,
-            PlayerTtl = 1,
-            EmptyRoomTtl = 5,
-            CustomRoomProperties = Costume,
-            CleanupCacheOnLeave = true
-        };
-
-        return roomOptions;
+        get { return _roomName; }
     }
     public void OnClick_CreateRoom()
     {
-        RoomOptions roomOptions = CreateRoomOptions();
+        ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
+<<<<<<< HEAD
+        Costume.Add("Time", currentRoomTime);
+        Costume.Add("Count", 1);
 
-        if (PhotonNetwork.CreateRoom(currentRoomName, roomOptions, TypedLobby.Default))
+=======
+        Costume.Add("Time", 5);
+>>>>>>> parent of d260ca6... UI cleanup
+        RoomOptions roomOptions = new RoomOptions()
+        {
+            IsVisible = true,
+            IsOpen = true,
+            MaxPlayers = 5,
+            PlayerTtl=1,
+            EmptyRoomTtl=5,
+            CustomRoomProperties=Costume,
+            CleanupCacheOnLeave=true
+        };
+        if (PhotonNetwork.CreateRoom(RoomName.text,roomOptions,TypedLobby.Default))
         {
             Debug.Log("create room Succefully sent");
             if (PhotonNetwork.room != null)
@@ -90,45 +91,4 @@ public class CreateRoom : MonoBehaviour
     {
         Debug.Log("room create  Succefully");
     }
-    public void InitDropDowns()
-    {
-        InitTimeDropDown();
-        InitMaxPlayersDropDown();
-        InitRoomTypeDropDown();
-    }
-    #region WTF
-    public void InitTimeDropDown()
-    {
-        List<TMP_Dropdown.OptionData> TimeList = new List<TMP_Dropdown.OptionData>();
-
-        foreach (var time in times)
-        {
-            var option = new TMP_Dropdown.OptionData(time.ToString());
-            TimeList.Add(option);
-        }
-        RoomTimeDropDown.AddOptions(TimeList);
-    }
-    public void InitMaxPlayersDropDown()
-    {
-        List<TMP_Dropdown.OptionData> maxPlayersList = new List<TMP_Dropdown.OptionData>();
-
-        foreach (var max in maxPlayers)
-        {
-            var option = new TMP_Dropdown.OptionData(max.ToString());
-            maxPlayersList.Add(option);
-        }
-        MaxPlayersDropDown.AddOptions(maxPlayersList);
-    }
-    public void InitRoomTypeDropDown()
-    {
-        List<TMP_Dropdown.OptionData> roomTypeList = new List<TMP_Dropdown.OptionData>();
-
-        foreach (var type in RoomTypes)
-        {
-            var option = new TMP_Dropdown.OptionData(type);
-            roomTypeList.Add(option);
-        }
-        RoomTypeDropDown.AddOptions(roomTypeList);
-    }
-    #endregion
 }

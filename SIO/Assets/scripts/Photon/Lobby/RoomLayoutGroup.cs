@@ -44,6 +44,7 @@ public class RoomLayoutGroup : MonoBehaviour
     }
     private void OnReceivedRoomListUpdate()
     {
+
         RoomInfo[] rooms = PhotonNetwork.GetRoomList();
         foreach (RoomInfo room in rooms)
         {

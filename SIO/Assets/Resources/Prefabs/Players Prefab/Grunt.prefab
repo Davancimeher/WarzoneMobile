@@ -219,7 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   agentManagement: {fileID: 0}
-  networkMatch: {fileID: 0}
   id: 0
   IsWaitingRoom: 0
 --- !u!114 &8037336057381118082
@@ -1900,10 +1899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.5
+  threshold: 0.299
   intensity: 1.14
   blurSize: 3.46
-  blurIterations: 2
+  blurIterations: 1
   blurType: 0
   fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!114 &6982513263616535082
