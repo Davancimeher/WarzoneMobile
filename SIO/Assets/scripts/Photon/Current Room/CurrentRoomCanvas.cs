@@ -4,6 +4,7 @@ using UnityEngine;
 public class CurrentRoomCanvas : MonoBehaviour
 {
     public SceneManagement SceneManagement;
+
     public void OnClickStartSync()
     {
         if (!PhotonNetwork.isMasterClient) return;
