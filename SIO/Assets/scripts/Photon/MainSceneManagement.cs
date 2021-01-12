@@ -42,18 +42,22 @@ public class MainSceneManagement : MonoBehaviour
 
     public void Update()
     {
-        if(PhotonNetwork.connectionState == ConnectionState.Disconnected && !reconnection.gameObject.activeSelf)
+        if (PhotonNetwork.connectionState == ConnectionState.Disconnected && !reconnection.gameObject.activeSelf)
         {
-            reconnection.SetActive(true);
+            if (!LobbyNetwork.changeRegionRequest)
+                reconnection.SetActive(true);
         }
+        if (PhotonNetwork.connectionState == ConnectionState.Disconnected && StartButton.interactable)
+        {
+            StartButton.interactable = false;
+        }
+         ConnectionStateText.text = PhotonNetwork.connectionState.ToString();
 
-        ConnectionStateText.text = PhotonNetwork.connectionState.ToString();
-        
 
     }
-   
+
     public void ClientConnectToMaster()
-    {   
+    {
         reconnection.SetActive(false);
         LobbyCanvas.SetActive(true);
         CurrentRoomCanvas.SetActive(true);
@@ -119,6 +123,17 @@ public class MainSceneManagement : MonoBehaviour
         CurrentRoomCanvas.transform.SetParent(OutSideParent);
         LobbyCanvas.transform.SetParent(OutSideParent);
     }
+    public void BackToMain()
+    {
+        setNameCanvas.transform.SetParent(MainCanvasParent);
+
+        reconnection.transform.SetParent(OutSideParent);
+        PlayerNameCanvas.transform.SetParent(OutSideParent);
+        CurrentRoomCanvas.transform.SetParent(OutSideParent);
+        LobbyCanvas.transform.SetParent(OutSideParent);
+        StartGameCanvas.transform.SetParent(OutSideParent);
+
+    }
     #region photon Callback
 
     public void OnConnectedToMaster()
@@ -132,7 +147,10 @@ public class MainSceneManagement : MonoBehaviour
     }
     public void ClientDisconnected()
     {
-        ClientDisconnectedUI();
+        if (!LobbyNetwork.changeRegionRequest)
+        {
+            ClientDisconnectedUI();
+        }
     }
     private void OnLeftRoom()
     {
@@ -143,7 +161,7 @@ public class MainSceneManagement : MonoBehaviour
     {
         ClientDisconnected();
     }
-   
+
     private void OnJoinedLobby()
     {
         ClientJoinLobby();

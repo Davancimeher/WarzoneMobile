@@ -37,13 +37,10 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupItems
   - RequestForPickupTimes
-  - RPC_LoadGameOthers
-  - RPC_LoadedGameScene
   - RPC_CreatePlayer
+  - RPC_LoadedGameScene
+  - RPC_LoadGameOthers
+  - RPC_Newcrew
   - RPC_NewHealth
   - RPC_PerformTaunt
-  - RPC_Newcrew
-  - Instantiation
-  - RPC_Instantiation
-  - RPC_TimeBroadcasting
   DisableAutoOpenWizard: 1

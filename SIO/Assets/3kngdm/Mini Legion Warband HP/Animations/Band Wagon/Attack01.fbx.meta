@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: 9390af38dee47b04598e07c96de446e7
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cannon01_L
+    100004: Cannon01_R
+    100006: Cannon02_L
+    100008: Cannon02_R
+    100010: FrontWheel_L
+    100012: FrontWheel_R
+    100014: Horn_L
+    100016: Horn_R
+    100018: Jaw
+    100020: MainBody
+    100022: RearWheel_L
+    100024: RearWheel_R
+    100026: Root
+    100028: Tower
+    100030: WarbandMesh
+    400000: //RootNode
+    400002: Cannon01_L
+    400004: Cannon01_R
+    400006: Cannon02_L
+    400008: Cannon02_R
+    400010: FrontWheel_L
+    400012: FrontWheel_R
+    400014: Horn_L
+    400016: Horn_R
+    400018: Jaw
+    400020: MainBody
+    400022: RearWheel_L
+    400024: RearWheel_R
+    400026: Root
+    400028: Tower
+    400030: WarbandMesh
+    4300000: WarbandMesh
+    7400000: Attack01
+    9500000: //RootNode
+    13700000: WarbandMesh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack01
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Root
+        weight: 1
+      - path: Root/FrontWheel_L
+        weight: 1
+      - path: Root/FrontWheel_R
+        weight: 1
+      - path: Root/MainBody
+        weight: 1
+      - path: Root/MainBody/Jaw
+        weight: 1
+      - path: Root/MainBody/Tower
+        weight: 1
+      - path: Root/MainBody/Tower/Cannon01_L
+        weight: 1
+      - path: Root/MainBody/Tower/Cannon01_L/Cannon02_L
+        weight: 1
+      - path: Root/MainBody/Tower/Cannon01_R
+        weight: 1
+      - path: Root/MainBody/Tower/Cannon01_R/Cannon02_R
+        weight: 1
+      - path: Root/MainBody/Tower/Horn_L
+        weight: 1
+      - path: Root/MainBody/Tower/Horn_R
+        weight: 1
+      - path: Root/RearWheel_L
+        weight: 1
+      - path: Root/RearWheel_R
+        weight: 1
+      - path: WarbandMesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

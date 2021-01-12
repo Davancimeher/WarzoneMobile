@@ -10,14 +10,6 @@ public class RoomListing : MonoBehaviour
         get { return _roomNameText; }
     }
 
-    [SerializeField]
-    private Text _roomPlayersText;
-    private Text RoomPlayersText
-    {
-        get { return _roomPlayersText; }
-    }
-
-
     public string RoomName { get; private set; }
     public RoomInfo room;
 
@@ -44,7 +36,5 @@ public class RoomListing : MonoBehaviour
     public void SetRoomInfo(RoomInfo roomInfo)
     {
         room = roomInfo;
-        var playersCount = (int)room.CustomProperties["Count"];
-        RoomPlayersText.text = playersCount + " / " + room.MaxPlayers;
     }
 }

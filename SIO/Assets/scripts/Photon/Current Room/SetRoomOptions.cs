@@ -5,35 +5,34 @@ using UnityEngine.UI;
 public class SetRoomOptions : MonoBehaviour
 {
     private int _maxPlayer;
-
+   
     private bool _isOpen;
-
+    
     private int _maxTime;
-
+   
     public Toggle isPrivateToggle;
     public InputField maxPlayerIPF;
     public InputField maxTimeIPF;
     public GameObject ApplyButton;
     public GameObject SettingsPanel;
-    private ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
+    ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
     private void Start()
     {
         Costume.Add("Time", 0);
         Costume.Add("StartTime", -1);
-        Costume.Add("Count", 1);
 
     }
     private void GetSettingsFromUI()
     {
-        _maxTime = int.Parse(maxTimeIPF.text);
+        _maxTime =int.Parse(maxTimeIPF.text);
         _maxPlayer = int.Parse(maxPlayerIPF.text);
         _isOpen = isPrivateToggle.isOn;
     }
     private void SetSettingsToUI()
     {
         maxPlayerIPF.text = PhotonNetwork.room.MaxPlayers.ToString();
-        //  _maxTime = int.Parse(maxTimeIPF.text);
-        //  _maxPlayer = int.Parse(maxPlayerIPF.text);
+      //  _maxTime = int.Parse(maxTimeIPF.text);
+      //  _maxPlayer = int.Parse(maxPlayerIPF.text);
         isPrivateToggle.isOn = PhotonNetwork.room.IsVisible;
         maxTimeIPF.text = PhotonNetwork.room.CustomProperties["Time"].ToString();
         Debug.LogError("Time : " + PhotonNetwork.room.CustomProperties["Time"]);
@@ -61,27 +60,10 @@ public class SetRoomOptions : MonoBehaviour
         Costume["Time"] = _maxTime;
         PhotonNetwork.room.SetCustomProperties(Costume);
 
-        Debug.Log("is visible : " + PhotonNetwork.room.IsVisible + " , max player : " + PhotonNetwork.room.MaxPlayers + " Time : " + PhotonNetwork.room.CustomProperties["Time"]);
-    }
-    private void OnPhotonPlayerDisconnected(PhotonPlayer photonPlayer)
-    {
-        if (PhotonNetwork.isMasterClient)
-        {
-            var playersCount = (int)PhotonNetwork.room.CustomProperties["Count"];
-            Debug.Log("playersCount : " + playersCount);
-            Costume["Count"] = playersCount--;
-            PhotonNetwork.room.SetCustomProperties(Costume);
-        }
-    }
-    private void OnPhotonPlayerConnected(PhotonPlayer photonPlayer)
-    {
-        if (PhotonNetwork.isMasterClient)
-        {
-            var playersCount = (int)PhotonNetwork.room.CustomProperties["Count"];
-            Debug.Log("playersCount : " + playersCount);
-            Costume["Count"] = playersCount++;
-            PhotonNetwork.room.SetCustomProperties(Costume);
-        }
-    }
+        Debug.Log("is visible : " + PhotonNetwork.room.IsVisible + " , max player : " + PhotonNetwork.room.MaxPlayers+" Time : "+ PhotonNetwork.room.CustomProperties["Time"]);
 
+
+        //jus to test
+    }
+   
 }

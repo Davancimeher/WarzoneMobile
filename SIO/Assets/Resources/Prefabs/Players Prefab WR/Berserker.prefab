@@ -126,10 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.299
+  threshold: 0.5
   intensity: 1.14
   blurSize: 3.46
-  blurIterations: 1
+  blurIterations: 2
   blurType: 0
   fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!114 &660389614685080516
@@ -618,7 +618,7 @@ Transform:
   m_GameObject: {fileID: 4630220806821476661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.66596556, y: 0.66596556, z: 0.66596556}
+  m_LocalScale: {x: 0.8688852, y: 0.8688852, z: 0.8688852}
   m_Children:
   - {fileID: 4636114223910925857}
   - {fileID: 4635966732765214675}
@@ -1578,7 +1578,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7204889658060403080}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 2.6463835, y: 2.6463835, z: 2.6463835}
   m_Children:
@@ -1664,6 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   agentManagement: {fileID: 0}
+  networkMatch: {fileID: 0}
   id: 0
   IsWaitingRoom: 0
 --- !u!114 &452234105830736236

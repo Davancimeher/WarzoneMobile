@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerLayoutGroup : MonoBehaviour
 {
-    ExitGames.Client.Photon.Hashtable Costume = new ExitGames.Client.Photon.Hashtable();
-
     public MainSceneManagement _MainSceneManagement;
     public List<Transform> SpawnPonts;
     public GameObject UICamera;
@@ -46,23 +44,11 @@ public class PlayerLayoutGroup : MonoBehaviour
     private void OnPhotonPlayerConnected(PhotonPlayer photonPlayer)
     {
         PlayerJoinedRoom(photonPlayer);
-
-       
     }
     //CB photon
     private void OnPhotonPlayerDisconnected(PhotonPlayer photonPlayer)
     {
         PlayerLeftRoom(photonPlayer,false);
-
-        //if (PhotonNetwork.isMasterClient)
-        //{
-        //    Costume.Clear();
-        //    var playersCount = (int)PhotonNetwork.room.CustomProperties["playersCount"];
-        //    Debug.Log("playersCount : " + playersCount);
-
-        //    Costume.Add("playersCount", playersCount--);
-        //    PhotonNetwork.room.SetCustomProperties(Costume);
-        //}
     }
 
 
@@ -91,9 +77,6 @@ public class PlayerLayoutGroup : MonoBehaviour
             myObj = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Players Prefab", PlayerPrefabsName), SpawnPonts[playerSpawnIndex].position, Quaternion.identity, 0);
             Debug.Log("Instantiate waiting Player");
             UICamera.SetActive(false);
-
-            
-            
         }
     }
     private void PlayerLeftRoom(PhotonPlayer photonPlayer,bool forUI)
@@ -101,8 +84,6 @@ public class PlayerLayoutGroup : MonoBehaviour
         int index = PlayerListings.FindIndex(x => x.PhotonPlayer == photonPlayer);
         if(index != -1)
         {
-           
-
             Destroy(PlayerListings[index].gameObject);
             PlayerListings.RemoveAt(index);
             if (!forUI)
